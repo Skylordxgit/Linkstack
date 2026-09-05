@@ -3,7 +3,26 @@
   publish = "netlify-dist"
 
 [build.environment]
-  PHP_VERSION = "8.3"
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/@:handle"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"

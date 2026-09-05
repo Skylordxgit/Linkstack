@@ -1,7 +1,9 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
+        "build": "node scripts/netlify-build.js",
+        "dev": "netlify dev",
+        "dev:laravel": "npm run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
