@@ -8,13 +8,7 @@ logs/*.log
 .env.local
 .env.production
 !.env.example
-backend/uploads/*
-!backend/uploads/.gitkeep
-!backend/uploads/avatars/.gitkeep
-!backend/uploads/backgrounds/.gitkeep
-!backend/uploads/thumbnails/.gitkeep
-!backend/uploads/seo/.gitkeep
-!backend/uploads/videos/.gitkeep
+.netlify/
 .DS_Store
 *.tsbuildinfo
 coverage/

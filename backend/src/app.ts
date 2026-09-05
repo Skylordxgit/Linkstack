@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser";
 import pinoHttp from "pino-http";
 import { env } from "./config/env";
 import { logger } from "./config/logger";
-import { uploadRoot } from "./middleware/upload";
 import { notFoundHandler, errorHandler } from "./middleware/errorHandler";
 
 import authRoutes from "./routes/auth.routes";
@@ -35,8 +34,6 @@ app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 app.use(cookieParser());
 app.use(pinoHttp({ logger, autoLogging: { ignore: (req) => req.url === "/api/health" } }));
-
-app.use("/uploads", express.static(uploadRoot, { maxAge: "30d", immutable: true }));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true, env: env.NODE_ENV }));
 

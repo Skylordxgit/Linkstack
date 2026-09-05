@@ -143,6 +143,7 @@ export interface Media {
   id: string;
   filename: string;
   url: string;
+  storagePath: string;
   mimeType: string;
   size: number;
   width?: number | null;

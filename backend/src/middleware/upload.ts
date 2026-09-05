@@ -1,6 +1,4 @@
 import multer from "multer";
-import path from "path";
-import fs from "fs";
 import { env } from "../config/env";
 
 const ALLOWED_MIME = new Set([
@@ -12,9 +10,9 @@ const ALLOWED_MIME = new Set([
   "video/webm",
 ]);
 
-const uploadRoot = path.resolve(process.cwd(), env.UPLOAD_PATH);
-if (!fs.existsSync(uploadRoot)) fs.mkdirSync(uploadRoot, { recursive: true });
-
+// Buffered in memory, never written to local disk — uploads go straight to
+// Supabase Storage, which is required on serverless runtimes (Netlify
+// Functions) with no persistent filesystem.
 const storage = multer.memoryStorage();
 
 export const upload = multer({
@@ -28,5 +26,3 @@ export const upload = multer({
     cb(null, true);
   },
 });
-
-export { uploadRoot };
