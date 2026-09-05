@@ -1,19 +1,10 @@
 generator client {
-  provider      = "prisma-client-js"
-  // "native" covers local dev; the rhel-openssl targets cover Netlify's
-  // Lambda-based Functions runtime (Amazon Linux 2 / 2023). Netlify's build
-  // environment picks whichever one actually matches at deploy time.
-  binaryTargets = ["native", "rhel-openssl-1.0.x", "rhel-openssl-3.0.x"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "postgresql"
-  // Supabase's pooled ("Transaction") connection string — used at runtime.
-  // Required for serverless functions, which open many short-lived connections.
-  url       = env("DATABASE_URL")
-  // Supabase's direct (non-pooled) connection string — used only for
-  // `prisma migrate deploy`/`dev`, which pgbouncer's transaction mode can't run.
-  directUrl = env("DIRECT_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 enum PageStatus {
@@ -176,16 +167,15 @@ model LinkClick {
 }
 
 model Media {
-  id          String   @id @default(cuid())
-  filename    String
-  url         String
-  storagePath String
-  mimeType    String
-  size        Int
-  width       Int?
-  height      Int?
-  kind        String
-  createdAt   DateTime @default(now())
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  width     Int?
+  height    Int?
+  kind      String
+  createdAt DateTime @default(now())
 }
 
 model Template {

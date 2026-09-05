@@ -22,13 +22,7 @@ export const env = {
   ADMIN_PASSWORD: process.env.ADMIN_PASSWORD ?? "",
   FRONTEND_URL: process.env.FRONTEND_URL ?? "http://localhost:3000",
   APP_URL: process.env.APP_URL ?? "http://localhost:3000",
+  UPLOAD_PATH: process.env.UPLOAD_PATH ?? "uploads",
   MAX_UPLOAD_SIZE: Number(process.env.MAX_UPLOAD_SIZE ?? 10 * 1024 * 1024),
   ANALYTICS_RETENTION_DAYS: Number(process.env.ANALYTICS_RETENTION_DAYS ?? 365),
-
-  // Supabase — used for both the Postgres database (see DATABASE_URL/DIRECT_URL
-  // above, read directly by Prisma) and Storage (media uploads).
-  SUPABASE_URL: required("SUPABASE_URL"),
-  // Server-only secret (bypasses Row Level Security) — never send to the browser.
-  SUPABASE_SERVICE_ROLE_KEY: required("SUPABASE_SERVICE_ROLE_KEY"),
-  SUPABASE_STORAGE_BUCKET: process.env.SUPABASE_STORAGE_BUCKET ?? "media",
 };

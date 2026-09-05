@@ -13,23 +13,9 @@ api.interceptors.response.use(
   }
 );
 
-/**
- * Base URL for server components / route handlers (SSR data fetching).
- *
- * - Self-hosted (Hostinger etc.): the backend runs as a sibling process on
- *   the same machine, so this defaults to http://localhost:4000/api.
- * - Netlify: the API is a *separate* Netlify Function from the Next.js
- *   server runtime — there's no shared "localhost" between them — so SSR
- *   fetches instead go out over the network to this site's own public URL.
- *   Netlify sets `URL` automatically at runtime (the production domain, or
- *   the deploy-preview URL for previews) with no configuration needed.
- *
- * Set INTERNAL_API_URL explicitly to override either default.
- */
+/** Base URL for server components / route handlers, which talk to the backend directly. */
 export function internalApiBase(): string {
-  if (process.env.INTERNAL_API_URL) return process.env.INTERNAL_API_URL;
-  if (process.env.URL) return `${process.env.URL}/api`;
-  return "http://localhost:4000/api";
+  return process.env.INTERNAL_API_URL || "http://localhost:4000/api";
 }
 
 /** Fetch wrapper for server components: forwards the admin cookie and returns parsed JSON or null on failure. */

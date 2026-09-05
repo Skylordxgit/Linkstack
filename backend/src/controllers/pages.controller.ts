@@ -33,10 +33,12 @@ export const listPages = asyncHandler(async (req, res) => {
   const where: any = {};
   if (query.status) where.status = query.status;
   if (query.search) {
+    // MySQL's default utf8mb4_*_ci collation already makes `contains` case-insensitive;
+    // the `mode: "insensitive"` filter option is Postgres-only and errors on MySQL.
     where.OR = [
-      { name: { contains: query.search, mode: "insensitive" } },
-      { slug: { contains: query.search, mode: "insensitive" } },
-      { title: { contains: query.search, mode: "insensitive" } },
+      { name: { contains: query.search } },
+      { slug: { contains: query.search } },
+      { title: { contains: query.search } },
     ];
   }
 

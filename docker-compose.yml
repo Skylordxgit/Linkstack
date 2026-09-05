@@ -1,21 +1,16 @@
-# Optional local/self-hosted stack. Not used for the Netlify + Supabase
-# deployment (see README) — this is for local development against a
-# containerized Postgres instead of Supabase, or for self-hosting the whole
-# app outside Netlify (e.g. alongside the Hostinger VPS instructions).
-# Media uploads still go to Supabase Storage either way (see backend/.env) —
-# there is no local-disk fallback.
 services:
-  postgres:
-    image: postgres:16-alpine
+  mysql:
+    image: mysql:8.0
     restart: unless-stopped
     environment:
-      POSTGRES_USER: linkapp
-      POSTGRES_PASSWORD: linkapp
-      POSTGRES_DB: linkapp
+      MYSQL_DATABASE: linkapp
+      MYSQL_USER: linkapp
+      MYSQL_PASSWORD: linkapp
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change_this_root_password}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - dbdata:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U linkapp"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "linkapp", "-plinkapp"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -25,24 +20,21 @@ services:
       context: ./backend
     restart: unless-stopped
     depends_on:
-      postgres:
+      mysql:
         condition: service_healthy
     environment:
       NODE_ENV: production
       PORT: 4000
-      # No connection pooler needed for a self-managed Postgres container —
-      # DATABASE_URL and DIRECT_URL are the same connection.
-      DATABASE_URL: postgresql://linkapp:linkapp@postgres:5432/linkapp?schema=public
-      DIRECT_URL: postgresql://linkapp:linkapp@postgres:5432/linkapp?schema=public
-      SUPABASE_URL: ${SUPABASE_URL}
-      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
-      SUPABASE_STORAGE_BUCKET: ${SUPABASE_STORAGE_BUCKET:-media}
+      DATABASE_URL: mysql://linkapp:linkapp@mysql:3306/linkapp
       JWT_SECRET: ${JWT_SECRET:-change_this_to_a_long_random_string}
       COOKIE_NAME: linkapp_session
       ADMIN_EMAIL: ${ADMIN_EMAIL:-you@example.com}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change_this_password}
       FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
       APP_URL: ${APP_URL:-http://localhost:3000}
+      UPLOAD_PATH: uploads
+    volumes:
+      - uploads:/app/uploads
     ports:
       - "4000:4000"
 
@@ -64,4 +56,5 @@ services:
       - "3000:3000"
 
 volumes:
-  pgdata:
+  dbdata:
+  uploads:

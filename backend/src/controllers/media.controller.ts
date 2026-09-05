@@ -1,27 +1,49 @@
+import path from "path";
+import fs from "fs/promises";
+import crypto from "crypto";
 import sharp from "sharp";
 import { prisma } from "../config/prisma";
 import { AppError } from "../utils/AppError";
 import { asyncHandler } from "../utils/asyncHandler";
+import { uploadRoot } from "../middleware/upload";
 import { recordAudit } from "../services/auditLog.service";
-import { uploadBuffer, deleteFromStorage, type UploadUsage } from "../services/storage.service";
 
 function kindFromMime(mime: string): "image" | "video" {
   return mime.startsWith("video/") ? "video" : "image";
 }
 
-const VALID_USAGES = new Set<UploadUsage>(["avatar", "background", "thumbnail", "seo", "video", "general"]);
+function subfolder(kind: "avatar" | "background" | "thumbnail" | "seo" | "video" | "general"): string {
+  switch (kind) {
+    case "avatar":
+      return "avatars";
+    case "background":
+      return "backgrounds";
+    case "thumbnail":
+      return "thumbnails";
+    case "seo":
+      return "seo";
+    case "video":
+      return "videos";
+    default:
+      return "thumbnails";
+  }
+}
 
 export const uploadMedia = asyncHandler(async (req, res) => {
   const file = req.file;
   if (!file) throw AppError.badRequest("No file uploaded");
 
-  const rawUsage = (req.body.usage as string) || "general";
-  const usage: UploadUsage = VALID_USAGES.has(rawUsage as UploadUsage) ? (rawUsage as UploadUsage) : "general";
+  const usage = (req.body.usage as string) || "general";
+  const folder = subfolder(usage as any);
   const kind = kindFromMime(file.mimetype);
+
+  const safeName = `${crypto.randomBytes(16).toString("hex")}${path.extname(file.originalname).toLowerCase()}`;
+  const destDir = path.join(uploadRoot, folder);
+  await fs.mkdir(destDir, { recursive: true });
+  const destPath = path.join(destDir, safeName);
 
   let width: number | undefined;
   let height: number | undefined;
-  let buffer = file.buffer;
 
   if (kind === "image") {
     // Re-encode through sharp to strip metadata/EXIF and normalize format; blocks disguised/malformed files.
@@ -30,20 +52,23 @@ export const uploadMedia = asyncHandler(async (req, res) => {
     width = meta.width;
     height = meta.height;
 
-    if (file.mimetype !== "image/gif") {
-      buffer = await image.resize({ width: 2000, height: 2000, fit: "inside", withoutEnlargement: true }).toBuffer();
+    if (file.mimetype === "image/gif") {
+      await fs.writeFile(destPath, file.buffer);
+    } else {
+      await image.resize({ width: 2000, height: 2000, fit: "inside", withoutEnlargement: true }).toFile(destPath);
     }
+  } else {
+    await fs.writeFile(destPath, file.buffer);
   }
 
-  const { url, storagePath } = await uploadBuffer(buffer, file.originalname, file.mimetype, usage);
+  const url = `/uploads/${folder}/${safeName}`;
 
   const media = await prisma.media.create({
     data: {
-      filename: storagePath.split("/").pop()!,
+      filename: safeName,
       url,
-      storagePath,
       mimeType: file.mimetype,
-      size: buffer.length,
+      size: file.size,
       width,
       height,
       kind,
@@ -68,7 +93,8 @@ export const deleteMedia = asyncHandler(async (req, res) => {
   const media = await prisma.media.findUnique({ where: { id: req.params.id } });
   if (!media) throw AppError.notFound("Media not found");
 
-  await deleteFromStorage(media.storagePath);
+  const filePath = path.join(uploadRoot, media.url.replace(/^\/uploads\//, ""));
+  await fs.unlink(filePath).catch(() => undefined);
 
   await prisma.media.delete({ where: { id: media.id } });
   await recordAudit("media.deleted", media.id);
