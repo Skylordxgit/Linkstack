@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 4%;
+  --foreground: 210 20% 98%;
+  --card: 240 10% 8%;
+  --card-foreground: 210 20% 98%;
+  --popover: 240 10% 8%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 258 90% 66%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 240 8% 16%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 240 8% 14%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 199 89% 58%;
+  --accent-foreground: 210 20% 98%;
+  --destructive: 0 72% 55%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 240 8% 20%;
+  --input: 240 8% 20%;
+  --ring: 258 90% 66%;
+  --radius: 1rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* ---------- Glass system ---------- */
+.glass-panel {
+  background: color-mix(in srgb, var(--glass-tint, #ffffff) calc(var(--glass-opacity, 0.14) * 100%), transparent);
+  backdrop-filter: blur(var(--glass-blur, 16px)) saturate(var(--glass-saturation, 1.1)) brightness(var(--glass-brightness, 1));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px)) saturate(var(--glass-saturation, 1.1)) brightness(var(--glass-brightness, 1));
+  border: var(--glass-border-width, 1px) solid color-mix(in srgb, #ffffff calc(var(--glass-border-opacity, 0.18) * 100%), transparent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, var(--glass-shadow, 0.2));
+}
+
+.glass-glow {
+  box-shadow: 0 0 24px 2px color-mix(in srgb, var(--glow-color, #a855f7) 45%, transparent), 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Animated backgrounds ---------- */
+.bg-aurora {
+  background: linear-gradient(120deg, var(--c1, #0ea5e9), var(--c2, #8b5cf6), var(--c3, #22d3ee), var(--c1, #0ea5e9));
+  background-size: 300% 300%;
+  animation: aurora 14s ease infinite;
+}
+
+.bg-mesh {
+  background-image: radial-gradient(at 20% 20%, var(--c1, #4c1d95) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, var(--c2, #db2777) 0px, transparent 50%),
+    radial-gradient(at 0% 80%, var(--c3, #020617) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, var(--c1, #4c1d95) 0px, transparent 50%);
+  background-color: var(--c3, #020617);
+}
+
+.bg-animated-gradient {
+  background: linear-gradient(-45deg, var(--c1, #0ea5e9), var(--c2, #8b5cf6), var(--c1, #0ea5e9));
+  background-size: 400% 400%;
+  animation: aurora 10s ease infinite;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: float 8s ease-in-out infinite;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ---------- Button animations ---------- */
+.anim-float { animation: float 3.5s ease-in-out infinite; }
+.anim-pulse { animation: pulse-soft 2.2s ease-in-out infinite; }
+.anim-glow { animation: glow 2.4s ease-in-out infinite; }
+.anim-scale { transition: transform 0.2s ease; }
+.anim-scale:hover { transform: scale(1.04); }
+.anim-shimmer {
+  background-image: linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+.anim-bounce { animation: bounce-soft 1.6s ease-in-out infinite; }
+.anim-tilt { animation: tilt 4s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 8px; }

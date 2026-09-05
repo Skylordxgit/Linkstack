@@ -1,0 +1,203 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+  HIDDEN
+  ARCHIVED
+}
+
+enum BlockType {
+  LINK
+  HEADING
+  TEXT
+  DIVIDER
+  SPACER
+  IMAGE
+  VIDEO
+  CONTACT
+  SOCIAL_ICONS
+}
+
+enum ProfileShape {
+  CIRCLE
+  ROUNDED
+  SQUARE
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String   @default("Admin")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  title       String
+  subtitle    String?
+  bio         String?
+  location    String?
+  avatarUrl   String?
+  verified    Boolean  @default(false)
+  profileShape ProfileShape @default(CIRCLE)
+  profileSize Int      @default(96)
+
+  status      PageStatus @default(DRAFT)
+  indexable   Boolean  @default(true)
+
+  theme            String  @default("aurora-glass")
+  appearanceConfig Json    @default("{}")
+  backgroundConfig Json    @default("{}")
+
+  seoTitle       String?
+  seoDescription String?
+  seoImage       String?
+  canonicalUrl   String?
+  ogTitle        String?
+  ogDescription  String?
+  twitterCard    String? @default("summary_large_image")
+
+  footerEnabled Boolean @default(true)
+  footerText    String?
+  footerLogo    String?
+
+  templateSource String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  blocks      Block[]
+  socialLinks SocialLink[]
+  pageViews   PageView[]
+  linkClicks  LinkClick[]
+
+  @@index([status])
+  @@index([slug])
+}
+
+model Block {
+  id          String    @id @default(cuid())
+  pageId      String
+  page        Page      @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  type        BlockType
+  title       String?
+  url         String?
+  description String?
+  icon        String?
+  thumbnail   String?
+  position    Int       @default(0)
+  enabled     Boolean   @default(true)
+  featured    Boolean   @default(false)
+  animation   String    @default("none")
+  config      Json      @default("{}")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  linkClicks LinkClick[]
+
+  @@index([pageId, position])
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  pageId    String
+  page      Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  platform  String
+  url       String
+  position  Int      @default(0)
+  enabled   Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId, position])
+}
+
+model PageView {
+  id         String   @id @default(cuid())
+  pageId     String
+  page       Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  visitorId  String
+  referrer   String?
+  device     String?
+  browser    String?
+  country    String?
+  utmSource  String?
+  utmMedium  String?
+  utmCampaign String?
+  utmContent String?
+  createdAt  DateTime @default(now())
+
+  @@index([pageId, createdAt])
+  @@index([visitorId])
+}
+
+model LinkClick {
+  id          String   @id @default(cuid())
+  pageId      String
+  page        Page     @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  blockId     String
+  block       Block    @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  visitorId   String
+  referrer    String?
+  device      String?
+  browser     String?
+  country     String?
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+  utmContent  String?
+  createdAt   DateTime @default(now())
+
+  @@index([pageId, createdAt])
+  @@index([blockId, createdAt])
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String
+  url       String
+  mimeType  String
+  size      Int
+  width     Int?
+  height    Int?
+  kind      String
+  createdAt DateTime @default(now())
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  isBuiltIn   Boolean  @default(false)
+  snapshot    Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Setting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String
+  target    String?
+  meta      Json?
+  createdAt DateTime @default(now())
+}

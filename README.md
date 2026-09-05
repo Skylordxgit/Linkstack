@@ -1,306 +1,325 @@
-<p align="center">
-  <img width="200px" src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/svg/logo_animated.svg"><br>
-  <br>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" width="400px" srcset="https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/png/wordmark_light.png">
-    <img width="400px" src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/png/wordmark_dark.png">
-  </picture>
-</p>
-
-<h3 align="center"><b>Open-Source Linktree Alternative</b></h3>
-
-<h3 align="center">LinkStack is a highly customizable link sharing platform<br>with an intuitive, easy to use user interface.</h3>
-
-<br>
-
-<p align="center">
-  <a href="#Function">Function</a> •
-  <a href="#About">About</a> •
-  <a href="#Instances">Instances</a> •
-  <a href="#Themes">Themes</a> •
-  <a href="#Installation">Installation</a> •
-  <a href="#Docker">Docker Version</a> •
-  <a href="#Updating">Updating</a> •
-  <a href="#Discord">Discord</a> •
-  <a href="#Fork-Structure">Fork structure</a> •
-  <a href="#License">License</a> •
-  <a href="#Supporters">Supporters</a> •
-  <a href="#Special-thanks">Special thanks</a> •
-  <a href="#Additional-credit">Additional credit</a>
-</p>
-
-<p align="center">
-<a href="https://github.com/linkstackorg/linkstack/stargazers"><img alt="GitHub Repo stars" src="https://img.tny.st/github/stars/julianprieber/littlelink-custom?label=Star%20the%20project&logo=GitHub"></a>
-<a href="https://mstdn.social/@linkstack"><img alt="Mastodon Follow" src="https://img.tny.st/mastodon/follow/110147874401985724?domain=http%3A%2F%2Fmstdn.social&style=social"></a>
-<a href="https://discord.linkstack.org"><img alt="Discord online user count" src="https://img.tny.st/discord/955765706111193118?color=4A55CC&label=Discord&logo=Discord&style=flat"></a>
-</p>
-<p align="center">
-<a href="https://github.com/sponsors/julianprieber"><img alt="GitHub spomsors" src="https://img.tny.st/github/sponsors/JulianPrieber?color=BF4B8A&logo=githubsponsors&style=flat&label=Sponsor%20us%20on%20Github"></a>
-<a href="https://patreon.com/julianprieber"><img alt="Patreon" src="https://img.tny.st/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Djulianprieber%26type%3Dpatrons&style=flat&logo=patreon"></a>
-<a href="https://liberapay.com/LinkStack"><img src="https://img.tny.st/liberapay/patrons/LinkStack?logo=liberapay&label=LiberaPay%20patrons"></a>
-</p>
-
----
-
-<p align="center">
-  <a href="https://github.com/linkstackorg/linkstack/releases/latest/download/linkstack.zip"><img src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/badges/png/download_latest.png" alt="Download latest" width="380" ></a>
-    <br>
-	<a href="https://github.com/linkstackorg/linkstack/releases"><img alt="GitHub release (latest by date)" src="https://img.tny.st/github/v/release/JulianPrieber/LittleLink-Custom?label=Latest%20release"></a>
-</p>
-
----
-
-<a name="Function"></a>
-## Function
-
-LinkStack: The Ultimate Link Management Solution
-
-LinkStack is a unique platform that provides an efficient solution for managing and sharing links online. Our platform offers a website similar to Linktree, which allows users to overcome the limitation of only being able to add one link on social media platforms.
-
-With LinkStack, users can easily link to their own custom page and provide their followers with access to all the links they need in one convenient location. What sets LinkStack apart from other link management platforms is its flexibility, which allows users to host their links on their own web server or web hosting provider. This provides users with complete control over their online presence and ensures that their links are easily accessible.
-
-Additionally, LinkStack allows other users to register and create their own links, making it an ideal solution for businesses and organizations looking to manage multiple links. With our user-friendly Admin Panel, managing and accessing other users' links is easy.
-
-<br>
-	    
-<a name="About"></a>
-## About
-
-With LinkStack, our mission is to provide users with a free and privacy-focused solution for managing and sharing links online. We believe that everyone should have access to a customizable link-sharing platform without sacrificing their privacy and control over their data.
-
-To achieve this mission, we offer a self-hosted option for users who want complete control over their data without having it sold to third-party companies. Our platform can be easily implemented through a simple **drag and drop** process, eliminating the need for complex terminal commands or source code manipulation.
-
-For those who may not have the technical expertise to self-host, we also offer free instances of our platform while still prioritizing their privacy. Our platform offers many of the same features and options as commercial link-sharing platforms while maintaining the values of privacy and autonomy.
-
-Our goal is to provide a free version of a link-sharing service, similar to Linktree, while empowering users to take ownership of their data. We will never sell user data and believe in providing a trustworthy and transparent solution for managing and sharing links online.
-	    
-<br>
-	    
-<a name="Instances"></a>
-## Instances
-
-<h3 align="center">Find the right instance for you</h3>
-
-<br>
-<p align="center">Our community instance program provides users with the opportunity to register on hosted instances and use Linkstack for free. Members of our community have generously provided their resources to host instances, allowing us to expand the reach of Linkstack and give back to the community</h3>
-
-<br>
-
-<p align="center">
-  <a href="https://linkstack.org/instances"><img src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/badges/png/create_account.png" alt="Community instances" width="350" ></a>
-</p>
-	    
-<a name="Themes"></a>
-## Themes
-
-<h3 align="center">Custom Themes</h3>
-
-<br>
-<p align="center">
-Customize the look of your LinkStack instance with themes. Themes allow you to change the look and feel of your site with a few clicks. Users can submit themes they created for everyone to download and use.
-</p>
-    
-<p align="center">
-Contribute by designing your own themes. You can read more about contributing below.
-</p>
-    
-<br>
-
-|![preview1](https://raw.githubusercontent.com/LinkStackOrg/stargazer/main/preview.png) |![preview2](https://raw.githubusercontent.com/LinkStackOrg/Magic-Kingdom/main/preview.png)|
-| ------------- |-------------|
-|![preview3](https://raw.githubusercontent.com/LinkStackOrg/polygon/main/preview.png)|![preview4](https://raw.githubusercontent.com/LinkStackOrg/PolySleek/main/preview.png)|  
-
-<br>
-
-You can find all available Themes on here:
-[linkstack.org/themes](https://linkstack.org/themes)
-
-
-<br>
-
-### How to add themes
-#### How to add themes to your LinkStack instance
-You can add your downloaded themes to your LinkStack instance on the Admin Panel. Navigate to the 'Themes' tab and scroll to the bottom of the page.
-
-Now click on Choose file and select your downloaded theme zip file. Now click on 'Upload theme' and you should be able to select your uploaded theme now.
-
-<br><br>
-
-### **Themes are envisioned to be made by users for users.**
-
-If you know a bit about CSS, consider making your own theme and adding it to the public directory.
-Everything is documented in the dedicated GitHub repository.
-
-[github.com/LinkStackOrg/linkstack-themes/tree/main/contributing](https://github.com/LinkStackOrg/linkstack-themes/tree/main/contributing)
-
-<a name="Installation"></a>
-## Installation
-
-### Downloading and installing steps:
-* **[Download](https://github.com/linkstackorg/linkstack/releases)** the latest release of LinkStack and simply place the folder 'linkstack' or the contents of this folder in the root directory of your website.
-
-### That's it! No coding no command line setup just plug and play.
-
-<br>	
-
-#### Go through the first setup page:
-
-When accessing your instance for the first time, you will be greeted by the first setup page.
-
-<p align="center">
-<img width="650" src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/marketing/setup_wizard.png">
-</p>
-
-<br>
-
-<a name="Docker"></a>
-## Docker
-
-<p align="center">
-<a href="https://github.com/linkstackorg/linkstack-docker">
-<picture>
-  <source media="(prefers-color-scheme: dark)" width="600px" srcset="https://raw.githubusercontent.com/LinkStackOrg/branding/main/marketing/docker_edition_dark.png">
-  <img width="600px" src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/marketing/docker_edition_light.png">
-</picture>
-</a>
-</p>
-
-The official docker version of [LinkStack](https://github.com/linkstackorg/linkstack). This docker image is a simple to set up solution, containing everything you need to run LinkStack.
-
-The docker version of LinkStack retains all the features and customization options of the [original version](https://github.com/linkstackorg/linkstack).
-
-This docker is based on [Alpine Linux](https://www.alpinelinux.org), a Linux distribution designed to be small, simple and secure. The web server is running [Apache2](https://www.apache.org), a free and open-source cross-platform web server software. The docker comes with [PHP 8.2](https://www.php.net/releases/8.2/en.php) for high compatibility and performance.
-
-#### Using the docker is as simple as pulling and deploying.
-
-#### Pull
-
-`docker pull linkstackorg/linkstack`
-
-#### [Learn more about the Docker version](https://github.com/LinkStackOrg/linkstack-docker)
-
-<br>
-
-<a name="Updating"></a>
-## Updating
-
-When a **new version** is released, you will get an update notification on your Admin Panel.
-
-### Automatic one click Updater
-This updater allows you to update your installation with just one click.
-
-<br>	
-
-**How to use the Automatic Updater:**
-
-- To update your instance, click on the update notification on your Admin Panel.
-
-- Click on “Update automatically” and the updater will take care of the rest.
-
-You can still download updates manually. New versions will are still uploaded to the GitHub repository as usual.
-
-<br>	
-
-Before updating, the updater will create a backup. Your instance won’t save more than two backups at a time. You can download these updates from the created folder: `backups\updater-backups`.
-
-If you switched your database to MySQL, your database will not be included in the backup.
-
-The updater may fail without throwing an error and just remain on the current version if there are unmet dependencies. This could include not having the correct version of the dependencies (eg. having php-sqlite3 pointing to php8.3-sqlite3, while LinkStack uses PHP 8.2 and needs php8.2-sqlite3). To troubleshoot, update manually and check the errors thown by the instance when accessing the website, as well as the PHP version reported.
-
-<a name="Discord"></a>
-## Discord
-
-<br>
-
-<p align="center">
-  <a href="https://discord.linkstack.org"><img src="https://raw.githubusercontent.com/LinkStackOrg/branding/main/marketing/discord.png" alt="Join the Discord" width="600" ></a>
-</p>
-
-<br>
-
-<a name="License"></a>
-## License
-
-[![License: AGPL v3](https://img.tny.st/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-
-As of version 4.0.0, the license for this project has been updated to the GNU Affero General Public License v3.0, which explicitly requires that any modifications made to the project must be made public. This license also requires that a copyright notice and license notice be included in any copies or derivative works of the project.
-
-Additionally, any changes made to the project must be clearly stated, and the source code for the modified version must be made available to anyone who receives the modified version. Network use of the project is also considered distribution, and as such, any network use of the project must comply with the terms of the license.
-
-Finally, any derivative works of the project must be licensed under the same license terms as the original project.
-
-[Read more here](https://www.gnu.org/licenses/agpl-3.0)
-
-<br>
-
-<a name="Supporters"></a>
-## Supporters
-You can support LinkStack [here](https://linkstack.org/sponsor).
-
-
-**💖 Thank you:**
-
-- Stephen Marshall
-- [Jascha Urbach](https://github.com/jaschaurbach)
-- [LeoColman](https://github.com/LeoColman)
-- [Eric Chung](https://github.com/erickchung)
-- [Daltz](https://github.com/Daltz)
-- [Jan Klomp](https://github.com/escuco)
-- [AnhDOS](https://github.com/AnhDOS)
-- [MrSpuddy](https://github.com/MrSpuddy)
-- [Chih Wang](https://github.com/dozod-c)
-- [kigordid](https://github.com/kigordid)
-- [Ariq Naufal](https://github.com/naufdotal)
-- [Molleman-De-Coster-BV](https://github.com/Molleman-De-Coster-BV)
-- [RogueThorn](https://github.com/DunklerPhoenix)
-- [sachacalibre](https://github.com/sachacalibre)
-- [John Francis Sukamto](https://github.com/bigbadmonster17)
-
-- [Add Your Name](https://linkstack.org/sponsor)
-
-<br>
-
-### Contributors
-
-Thank you for improving LinkStack!
-
-<p>
-  <a href="https://github.com/linkstackorg/linkstack/graphs/contributors"><img src="https://components.linkstack.org/contributors" alt="Contributors" width="600" ></a>
-</p>
-
-<br>
-
-### Beta Testers
-
-Thank you for all your efforts!
-
-<p>
-  <a href="https://linkstack.org/beta-tester"><img src="https://components.linkstack.org/beta-testers" alt="Contributors" width="600" ></a>
-</p>
-
-[Become a beta tester](https://linkstack.org/beta-tester)
-
-<br>
-
-### Stargazers
-
-<a href="https://star-history.com/#LinkStackOrg/LinkStack&LinkStackOrg/linkstack-docker&LinkStackOrg/linkstack-themes&Date">
-    <img alt="Star History Chart" width="700px" src="https://api.star-history.com/svg?repos=LinkStackOrg/LinkStack,LinkStackOrg/linkstack-docker,LinkStackOrg/linkstack-themes&type=Date">
-</a>
-
-<br>
-
-<a name="Additional-credit"></a>
-## Additional-credit
-
-- [laravel](https://github.com/laravel/laravel)
-- [forked from](https://github.com/khzg/littlelink-admin)
-- [default theme](https://github.com/sethcottle/littlelink)
-- [dashboard template](https://github.com/iqonicdesignofficial/hope-ui-laravel-dashboard)
-- [general animations](https://github.com/animate-css/animate.css)
-- [config editor](https://github.com/GeoSot/Laravel-EnvEditor)
-- [text editor (admin)](https://github.com/ckeditor/ckeditor4)
-- [text editor (user)](https://github.com/ckeditor/ckeditor5)
-- [backup backend](https://github.com/spatie/laravel-backup)
-- [Vcard backend](https://github.com/jeroendesloovere/vcard)
-- [QR code backend](https://github.com/Bacon/BaconQrCode)
+# LinkApp
+
+A private, self-hosted, single-admin link management platform — inspired by the functionality of
+Linktree / mssg.me, built for personal use. One admin login, unlimited public pages
+(`domain.com/baji`, `domain.com/support`, `domain.com/social`, ...), each with its own profile,
+links, social icons, glass UI theme, background, SEO and analytics.
+
+This is **not** a SaaS: there is no signup, no billing, no multi-tenant customer system. Just one
+admin dashboard controlling as many public pages as you want.
+
+## Architecture
+
+```
+root/
+  frontend/    Next.js 15 (App Router, TypeScript, Tailwind) — admin UI + public pages
+  backend/     Node.js + Express + TypeScript + Prisma — REST API
+  deploy/      Example Nginx config
+  ecosystem.config.js   PM2 process definitions
+  docker-compose.yml    Optional containerized stack (frontend + backend + postgres)
+```
+
+- **Frontend** (port 3000): renders the admin dashboard/editor and the public `/[slug]` pages.
+  Talks to the backend over HTTP — never touches the database directly.
+- **Backend** (port 4000): Express REST API, Prisma ORM, PostgreSQL. Owns auth, all CRUD, uploads,
+  analytics, click/view tracking.
+- They are independently deployable — you can build/restart/scale each one without touching the
+  other, as long as `NEXT_PUBLIC_API_URL` / `INTERNAL_API_URL` (frontend) and `FRONTEND_URL` /
+  `APP_URL` (backend) point at each other correctly.
+
+### How requests are routed
+
+In production, Nginx does the routing:
+
+```
+https://domain.com        -> frontend (port 3000)
+https://domain.com/api/*  -> backend  (port 4000)
+https://domain.com/uploads/* -> backend (port 4000), for uploaded media
+```
+
+The frontend's browser-side API client defaults to a **relative** `/api` base URL, so it always
+calls same-origin, and Nginx forwards that to the backend — no CORS needed, and the admin session
+cookie is naturally first-party. Server-side rendering (the public pages, the admin auth check)
+talks to the backend directly via `INTERNAL_API_URL` (defaults to `http://localhost:4000/api`),
+bypassing Nginx entirely for speed.
+
+In local development (no Nginx), `frontend/next.config.js` rewrites `/api/*` and `/uploads/*` to
+`BACKEND_ORIGIN` (defaults to `http://localhost:4000`) so the same relative-URL setup works
+without any extra configuration.
+
+## Requirements
+
+- Node.js 20 LTS
+- PostgreSQL 14+ (MySQL is not implemented — Prisma schema targets Postgres, but the app has no
+  Postgres-only SQL, so switching Prisma's `provider` to `mysql` and re-running migrations is a
+  small, isolated change if you need it)
+- npm
+
+## Local development
+
+```bash
+# 1. Install everything
+npm run install:all
+
+# 2. Configure environment
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+# edit backend/.env: set DATABASE_URL, JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD
+
+# 3. Set up the database
+cd backend
+npx prisma migrate dev --name init
+npm run seed          # creates your admin account + default settings
+cd ..
+
+# 4. Run both apps together
+npm run dev
+```
+
+- Frontend: http://localhost:3000
+- Backend health check: http://localhost:4000/api/health
+- Admin login: http://localhost:3000/admin/login (use the `ADMIN_EMAIL` / `ADMIN_PASSWORD` from
+  `backend/.env`)
+
+### Frontend setup (standalone)
+
+```bash
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+### Backend setup (standalone)
+
+```bash
+cd backend
+npm install
+cp .env.example .env
+npx prisma generate
+npx prisma migrate dev --name init
+npm run seed
+npm run dev
+```
+
+### Database / Prisma
+
+The schema (`backend/prisma/schema.prisma`) defines: `Admin`, `Page`, `Block`, `SocialLink`,
+`PageView`, `LinkClick`, `Media`, `Template`, `Setting`, `AuditLog`.
+
+- `npx prisma migrate dev --name <name>` — create + apply a migration in development
+- `npx prisma migrate deploy` — apply pending migrations in production (non-interactive)
+- `npx prisma studio` — browse the database visually
+- `npm run seed` (in `backend/`) — upserts the single admin account from `ADMIN_EMAIL` /
+  `ADMIN_PASSWORD`, and default settings. Safe to re-run.
+
+### Admin seed
+
+There is no signup page. The one admin account is created by the seed script from environment
+variables:
+
+```
+ADMIN_EMAIL=you@example.com
+ADMIN_PASSWORD=a-strong-password-at-least-8-chars
+```
+
+Run `npm run seed` (from `backend/`) any time to (re)create the account or reset the password to
+what's currently in `.env`.
+
+## Environment variables
+
+**`backend/.env`**
+
+| Variable | Description |
+|---|---|
+| `NODE_ENV` | `development` \| `production` |
+| `PORT` | Backend port (default `4000`) |
+| `DATABASE_URL` | Postgres connection string |
+| `JWT_SECRET` | Long random string signing the session cookie |
+| `JWT_EXPIRES_IN` | Session lifetime (default `7d`) |
+| `COOKIE_NAME` | Session cookie name (default `linkapp_session`) |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Used only by `npm run seed` |
+| `FRONTEND_URL` / `APP_URL` | Used for CORS allow-list |
+| `UPLOAD_PATH` | Local upload directory (default `uploads`) |
+| `MAX_UPLOAD_SIZE` | Bytes (default 10 MB) |
+| `ANALYTICS_RETENTION_DAYS` | Informational; wire up a cleanup cron if you want auto-pruning |
+
+**`frontend/.env.local`**
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | Browser-facing API base. Leave as `/api` (recommended). |
+| `INTERNAL_API_URL` | Server-side (SSR) API base, talks to the backend directly. |
+| `BACKEND_ORIGIN` | Used by the dev rewrite proxy only. |
+| `NEXT_PUBLIC_SITE_URL` | Full public site URL, used for SEO/sitemap/share links. |
+| `COOKIE_NAME` | Must match the backend's `COOKIE_NAME`. |
+
+## Build
+
+```bash
+# Backend
+cd backend
+npm install
+npx prisma generate
+npx prisma migrate deploy
+npm run build
+npm run start
+
+# Frontend
+cd frontend
+npm install
+npm run build
+npm run start
+```
+
+### Testing before you ship
+
+```bash
+cd backend && npm run lint && npx tsc --noEmit && npx prisma validate
+cd frontend && npm run lint && npm run build
+```
+
+Then manually verify the golden path: admin login → create page → upload avatar → add a WhatsApp
+link → add a Telegram link → add a custom link → drag to reorder blocks → publish → open the
+public page → confirm a view is recorded → click a link → confirm a click is recorded → duplicate
+the page → generate a QR code → check `/admin/analytics` → log out.
+
+## Production deployment (Hostinger VPS / any Ubuntu VPS)
+
+1. **Provision**: Ubuntu 22.04+ VPS, Node.js 20 LTS, PostgreSQL, Nginx, PM2.
+
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+   sudo apt-get install -y nodejs postgresql nginx
+   sudo npm install -g pm2
+   ```
+
+2. **Database**: create the database/user.
+
+   ```bash
+   sudo -u postgres psql -c "CREATE USER linkapp WITH PASSWORD 'change_me';"
+   sudo -u postgres psql -c "CREATE DATABASE linkapp OWNER linkapp;"
+   ```
+
+3. **Clone and configure**:
+
+   ```bash
+   git clone <your-repo-url> /var/www/linkapp
+   cd /var/www/linkapp
+   cp backend/.env.example backend/.env
+   cp frontend/.env.example frontend/.env.local
+   # edit both with production values: DATABASE_URL, JWT_SECRET, ADMIN_EMAIL/PASSWORD,
+   # NEXT_PUBLIC_SITE_URL=https://domain.com, NEXT_PUBLIC_API_URL=/api,
+   # INTERNAL_API_URL=http://localhost:4000/api, FRONTEND_URL=https://domain.com
+   ```
+
+4. **Install, migrate, seed, build**:
+
+   ```bash
+   npm run install:all
+   cd backend && npx prisma migrate deploy && npm run seed && npm run build && cd ..
+   cd frontend && npm run build && cd ..
+   ```
+
+5. **Start with PM2**:
+
+   ```bash
+   pm2 start ecosystem.config.js
+   pm2 save
+   pm2 startup   # follow the printed instructions to enable boot startup
+   ```
+
+6. **Nginx**: copy `deploy/nginx.conf` to `/etc/nginx/sites-available/linkapp`, edit `domain.com`
+   to your real domain, then:
+
+   ```bash
+   sudo ln -s /etc/nginx/sites-available/linkapp /etc/nginx/sites-enabled/linkapp
+   sudo nginx -t && sudo systemctl reload nginx
+   ```
+
+7. **SSL** with Let's Encrypt:
+
+   ```bash
+   sudo apt-get install -y certbot python3-certbot-nginx
+   sudo certbot --nginx -d domain.com -d www.domain.com
+   ```
+
+   Certbot rewrites the Nginx config to add the HTTPS server block and redirect HTTP → HTTPS.
+   Renewal is automatic via the certbot systemd timer.
+
+### Docker (optional)
+
+A `docker-compose.yml` is provided for a fully containerized stack (frontend + backend +
+Postgres). It is **not required** — the PM2 + Nginx setup above works without Docker.
+
+```bash
+cp backend/.env.example .env   # only JWT_SECRET / ADMIN_EMAIL / ADMIN_PASSWORD are read from here
+docker compose up -d --build
+docker compose exec backend npx prisma migrate deploy
+docker compose exec backend npm run seed
+```
+
+### Backups
+
+- **Database**: `pg_dump -U linkapp linkapp > backup-$(date +%F).sql` (cron this daily; keep
+  offsite copies).
+- **Uploads**: back up `backend/uploads/` (or the `uploads` Docker volume) — it's not in git.
+
+### Updating the application
+
+```bash
+cd /var/www/linkapp
+git pull
+npm run install:all
+cd backend && npx prisma migrate deploy && npm run build && cd ..
+cd frontend && npm run build && cd ..
+pm2 restart ecosystem.config.js
+```
+
+### Troubleshooting
+
+- **502 from Nginx**: check `pm2 status` and `pm2 logs linkapp-backend` /
+  `pm2 logs linkapp-frontend` — one of the two processes probably isn't running or crashed on
+  boot (usually a missing/incorrect env var).
+- **Login works locally but not in production**: confirm `NODE_ENV=production` on the backend
+  (the session cookie is only marked `Secure` in production, so it silently gets dropped by the
+  browser over plain HTTP) and that you're serving over HTTPS.
+- **Images/uploads 404 in production**: make sure the Nginx `/uploads/` location block is present
+  and points at the backend, and that `backend/uploads/` is writable by the Node process.
+- **Prisma migration errors**: never edit an already-applied migration; create a new one with
+  `npx prisma migrate dev --name fix_x` locally, commit it, then `npx prisma migrate deploy` in
+  production.
+- **CORS errors**: only relevant if the frontend calls the backend cross-origin (e.g.
+  `NEXT_PUBLIC_API_URL` set to a different domain). Make sure that exact origin is in
+  `FRONTEND_URL`/`APP_URL` on the backend.
+
+## What's implemented
+
+Admin auth (single account, HttpOnly JWT cookie, bcrypt), full page/block/social-link CRUD with
+drag-and-drop reordering, autosaving visual page editor with live mobile/desktop preview, 12
+theme presets on top of a fully custom glass/background/button/animation system, media library
+(Multer + Sharp, re-encodes and strips EXIF on upload), built-in + savable templates, page
+duplication, publish/draft/hidden/archived status, dynamic SEO metadata + `robots.txt` +
+`sitemap.xml`, privacy-friendly view/click analytics (daily-rotating salted visitor hash — no
+persistent fingerprinting) with device/browser/referrer/UTM breakdowns and Recharts dashboards,
+share sheet + QR code (PNG/SVG) generation, and an audit log of admin actions.
+
+**Not implemented** (documented rather than faked): GeoIP country lookup for analytics (the
+`country` field exists in the schema but is never populated — wiring in a GeoIP database/service
+is a self-contained addition to `backend/src/utils/visitor.ts`), and a Cloudinary-style remote
+storage adapter for uploads (currently local disk only, which is what the Hostinger VPS deployment
+target expects).
+
+## Security notes
+
+- Session auth uses an HttpOnly, `SameSite=Lax` cookie (`Secure` in production) — never
+  `localStorage`.
+- All `/api/admin/*` routes require a valid session; the frontend's `/admin/*` routes are guarded
+  both by middleware (fast cookie-presence redirect) and by a server-side `GET /api/auth/me` check
+  in the protected layout (the real check).
+- `javascript:`, `data:`, and `vbscript:` URLs are rejected wherever a user-supplied URL is stored
+  (link blocks, social links).
+- Uploaded images are re-encoded through Sharp (strips EXIF, blocks disguised files); raw SVG
+  uploads are not accepted.
+- Rate limiting on `/api/auth/login`, uploads, and public endpoints; Helmet, and a Zod-validated
+  request body on every write route.

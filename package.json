@@ -1,25 +1,18 @@
 {
-    "private": true,
-    "scripts": {
-        "build": "node scripts/netlify-build.js",
-        "dev": "netlify dev",
-        "dev:laravel": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "@tailwindcss/forms": "^0.2.1",
-        "alpinejs": "^2.7.3",
-        "autoprefixer": "^10.1.0",
-        "axios": "^1.6",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.31",
-        "postcss-import": "^12.0.1",
-        "tailwindcss": "^2.0.2"
-    }
+  "name": "linkapp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Private self-hosted multi-page link management app (Linktree/mssg.me-style), single admin, unlimited public pages.",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend",
+    "prisma:generate": "npm run prisma:generate --prefix backend",
+    "prisma:migrate": "npm run prisma:migrate --prefix backend",
+    "seed": "npm run seed --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
 }
