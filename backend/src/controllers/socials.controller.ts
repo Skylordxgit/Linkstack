@@ -23,7 +23,7 @@ export const createSocial = asyncHandler(async (req, res) => {
   const maxPos = await prisma.socialLink.aggregate({ where: { pageId: page.id }, _max: { position: true } });
 
   const social = await prisma.socialLink.create({
-    data: { ...body, pageId: page.id, position: (maxPos._max.position ?? -1) + 1 },
+    data: { ...body, pageId: page.id, position: (maxPos._max.position ?? -1) + 1 } as any,
   });
   res.status(201).json(social);
 });

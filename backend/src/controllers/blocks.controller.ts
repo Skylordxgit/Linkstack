@@ -33,7 +33,7 @@ export const createBlock = asyncHandler(async (req, res) => {
       ...body,
       pageId: page.id,
       position: (maxPos._max.position ?? -1) + 1,
-    },
+    } as any,
   });
 
   await recordAudit("block.created", block.id, { pageId: page.id, type: block.type });
