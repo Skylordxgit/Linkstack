@@ -288,6 +288,12 @@ pm2 restart ecosystem.config.js
   browser over plain HTTP) and that you're serving over HTTPS.
 - **Images/uploads 404 in production**: make sure the Nginx `/uploads/` location block is present
   and points at the backend, and that `backend/uploads/` is writable by the Node process.
+- **`npm run build` fails with Prisma type errors** (e.g. a `pageId: string` not assignable to
+  `never`): the generated Prisma client is stale or was never generated for this install —
+  `npm run build` runs `prisma generate` automatically first (see `prebuild` in
+  `backend/package.json`), but some managed Node.js hosting panels install dependencies with npm
+  lifecycle scripts disabled, which can skip even that. Run `npx prisma generate` manually once,
+  then retry the build.
 - **Prisma migration errors**: never edit an already-applied migration; create a new one with
   `npx prisma migrate dev --name fix_x` locally, commit it, then `npx prisma migrate deploy` in
   production.
