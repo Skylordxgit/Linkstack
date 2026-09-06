@@ -288,12 +288,19 @@ pm2 restart ecosystem.config.js
   browser over plain HTTP) and that you're serving over HTTPS.
 - **Images/uploads 404 in production**: make sure the Nginx `/uploads/` location block is present
   and points at the backend, and that `backend/uploads/` is writable by the Node process.
-- **`npm run build` fails with Prisma type errors** (e.g. a `pageId: string` not assignable to
+- **`npm run build` fails with "Cannot find module 'express'" / "Cannot find name 'process'"
+  / other missing-type-declaration errors**: the hosting panel's install step dropped
+  `devDependencies` (a common default on managed Node.js hosting, e.g. via `NODE_ENV=production`
+  during the build phase) before running the build command. `tsc` needs the `@types/*` packages
+  to compile even though the app doesn't need them at runtime — that's why `backend/package.json`
+  keeps them (along with `typescript`, `prisma`, and `tsx`) in regular `dependencies` rather than
+  `devDependencies`. If you see this error, something in your install step is still excluding
+  regular dependencies too, or a dependency was added back under `devDependencies` — compare
+  against what's currently listed in `dependencies` there.
+- **`npm run build` fails with a Prisma type error** (e.g. a `pageId: string` not assignable to
   `never`): the generated Prisma client is stale or was never generated for this install —
   `npm run build` runs `prisma generate` automatically first (see `prebuild` in
-  `backend/package.json`), but some managed Node.js hosting panels install dependencies with npm
-  lifecycle scripts disabled, which can skip even that. Run `npx prisma generate` manually once,
-  then retry the build.
+  `backend/package.json`). If it still happens, run `npx prisma generate` manually and retry.
 - **Prisma migration errors**: never edit an already-applied migration; create a new one with
   `npx prisma migrate dev --name fix_x` locally, commit it, then `npx prisma migrate deploy` in
   production.
