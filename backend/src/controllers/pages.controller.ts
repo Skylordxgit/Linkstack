@@ -65,8 +65,8 @@ export const listPages = asyncHandler(async (req, res) => {
 
   res.json({
     items: items.map((p) => {
-      const views = viewsByPage.get(p.id) ?? 0;
-      const clicks = clicksByPage.get(p.id) ?? 0;
+      const views = Number(viewsByPage.get(p.id) ?? 0);
+      const clicks = Number(clicksByPage.get(p.id) ?? 0);
       return {
         ...p,
         blockCount: p._count.blocks,
